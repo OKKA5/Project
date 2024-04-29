@@ -486,27 +486,50 @@ $(".main").on("click", ".category .overlay", function () {
   var index = $(this).closest(".category").index();
   categoryName = categoriesdata.categories[index].strCategory;
   console.log(categoryName);
+  if ($(".side-icon i").hasClass("fa-xmark")){
+    $("aside").animate({ left: "-200px" }, 500);
+    $(".side-icon i").addClass("fa-bars")
+    $(".side-icon i").removeClass("fa-xmark")
+  }
   categoriesname();
 });
 $(".main").on("click", ".area .arearange", function () {
   var index = $(this).closest(".area").index();
   areaName = displayedAreas[index];
   console.log(areaName);
+  if ($(".side-icon i").hasClass("fa-xmark")){
+    $("aside").animate({ left: "-200px" }, 500);
+    $(".side-icon i").addClass("fa-bars")
+    $(".side-icon i").removeClass("fa-xmark")
+  }
   areaname();
 });
 $(".main").on("click", ".ingredient ", function () {
   var index = $(this).closest(".ingredient").index();
   ingredientName = ingredientsdata.meals[index].strIngredient;
   console.log(ingredientName);
+  if ($(".side-icon i").hasClass("fa-xmark")){
+    $("aside").animate({ left: "-200px" }, 500);
+    $(".side-icon i").addClass("fa-bars")
+    $(".side-icon i").removeClass("fa-xmark")
+  }
   ingredientsname();
 });
 $(".main").on("click", ".meal-info ", function () {
   var p = $(this).find("p");
   mealId = p.attr("id");
-
+  
+  if ($(".side-icon i").hasClass("fa-xmark")){
+    $("aside").animate({ left: "-200px" }, 500);
+    $(".side-icon i").addClass("fa-bars")
+    $(".side-icon i").removeClass("fa-xmark")
+  }
+  $(".search").hide();
+  $(".main").show();
   console.log(mealId);
   mealInfo();
 });
+
 
 var nameRegex = /^[a-zA-Z]+$/;
 var emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
@@ -534,14 +557,7 @@ function displaymealssearch(testdata) {
   $(".main").html(meals);
   console.log($(".main"));
 }
-$(".main").on("click", ".meal-info ", function () {
-  var p = $(this).find("p");
-  mealId = p.attr("id");
-  $(".search").hide();
-  $(".main").show();
-  console.log(mealId);
-  mealInfo();
-});
+
 async function serachbyname(term) {
   let response = await fetch(
     `https://www.themealdb.com/api/json/v1/1/search.php?s=${term}`
