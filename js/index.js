@@ -461,7 +461,7 @@ function displaymeals() {
     $(".ageInput input").on("input", function () {
       ageValue = $(".ageInput input").val();
       console.log(ageValue);
-      if (validate(ageRegex, ageValue)) {
+      if (ageValue >= 0) {
         $(".ageInput p").addClass("d-none");
         agev = true;
       } else {
@@ -486,10 +486,10 @@ $(".main").on("click", ".category .overlay", function () {
   var index = $(this).closest(".category").index();
   categoryName = categoriesdata.categories[index].strCategory;
   console.log(categoryName);
-  if ($(".side-icon i").hasClass("fa-xmark")){
+  if ($(".side-icon i").hasClass("fa-xmark")) {
     $("aside").animate({ left: "-200px" }, 500);
-    $(".side-icon i").addClass("fa-bars")
-    $(".side-icon i").removeClass("fa-xmark")
+    $(".side-icon i").addClass("fa-bars");
+    $(".side-icon i").removeClass("fa-xmark");
   }
   categoriesname();
 });
@@ -497,10 +497,10 @@ $(".main").on("click", ".area .arearange", function () {
   var index = $(this).closest(".area").index();
   areaName = displayedAreas[index];
   console.log(areaName);
-  if ($(".side-icon i").hasClass("fa-xmark")){
+  if ($(".side-icon i").hasClass("fa-xmark")) {
     $("aside").animate({ left: "-200px" }, 500);
-    $(".side-icon i").addClass("fa-bars")
-    $(".side-icon i").removeClass("fa-xmark")
+    $(".side-icon i").addClass("fa-bars");
+    $(".side-icon i").removeClass("fa-xmark");
   }
   areaname();
 });
@@ -508,28 +508,27 @@ $(".main").on("click", ".ingredient ", function () {
   var index = $(this).closest(".ingredient").index();
   ingredientName = ingredientsdata.meals[index].strIngredient;
   console.log(ingredientName);
-  if ($(".side-icon i").hasClass("fa-xmark")){
+  if ($(".side-icon i").hasClass("fa-xmark")) {
     $("aside").animate({ left: "-200px" }, 500);
-    $(".side-icon i").addClass("fa-bars")
-    $(".side-icon i").removeClass("fa-xmark")
+    $(".side-icon i").addClass("fa-bars");
+    $(".side-icon i").removeClass("fa-xmark");
   }
   ingredientsname();
 });
 $(".main").on("click", ".meal-info ", function () {
   var p = $(this).find("p");
   mealId = p.attr("id");
-  
-  if ($(".side-icon i").hasClass("fa-xmark")){
+
+  if ($(".side-icon i").hasClass("fa-xmark")) {
     $("aside").animate({ left: "-200px" }, 500);
-    $(".side-icon i").addClass("fa-bars")
-    $(".side-icon i").removeClass("fa-xmark")
+    $(".side-icon i").addClass("fa-bars");
+    $(".side-icon i").removeClass("fa-xmark");
   }
   $(".search").hide();
   $(".main").show();
   console.log(mealId);
   mealInfo();
 });
-
 
 var nameRegex = /^[a-zA-Z]+$/;
 var emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
@@ -565,7 +564,7 @@ async function serachbyname(term) {
   response = await response.json();
   response.meals ? displaymealssearch(response.meals) : displaymealssearch([]);
 }
-serachbyname()
+serachbyname();
 async function serachbyFletter(term) {
   let response = await fetch(
     `https://www.themealdb.com/api/json/v1/1/search.php?f=${term}`
@@ -573,7 +572,7 @@ async function serachbyFletter(term) {
   response = await response.json();
   response.meals ? displaymealssearch(response.meals) : displaymealssearch([]);
 }
-serachbyFletter()
+serachbyFletter();
 
 function showSearchInputs() {
   var searchform = `<div class="container">
@@ -582,16 +581,16 @@ function showSearchInputs() {
 <input type="text" onkeyup="serachbyFletter(this.value)" placeholder="Search By First Letter" maxlength="1" class="br-5 w-100 p-2 bg-transperant text-white MealFirstL">
 </form>
 </div>`;
-$(".search").show();
+  $(".search").show();
   $(".search").html(searchform);
-  $(".main").hide()
+  $(".main").hide();
   $(".MealName").on("input", function () {
     console.log($(this).val());
-    $(".main").show()
+    $(".main").show();
   });
   $(".MealFirstL").on("input", function () {
     console.log($(this).val());
-    $(".main").show()
+    $(".main").show();
   });
 }
 
