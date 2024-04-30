@@ -307,7 +307,7 @@ function displaymeals() {
     meals = "";
     displayedAreas = [];
     for (let i = 0; i < 28; i++) {
-      var area = areadata.meals[i].strArea;
+      const area = areadata.meals[i].strArea;
       displayedAreas.push(area);
       meals += `<div class="col-md-3 mb-3 area">
     <div class="br-20 inner text-white text-center arearange">
@@ -315,13 +315,14 @@ function displaymeals() {
     <p class="fw-bold m-0 pt-3">${area}</p>
     </div>
     </div>`;
-      areaname();
+      
     }
     $(".main").html(meals);
     $(".loading").fadeOut(2000, function () {
       $("body").css({ overflow: "auto" });
     });
   });
+  
   $("aside .ul-4").on("click", function () {
     $(".loading").css({ display: "flex" });
     $(".search").hide();
