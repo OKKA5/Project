@@ -412,6 +412,7 @@ function displaymeals() {
         namev = true;
       } else {
         $(".nameInput p").removeClass("d-none");
+        namev = false;
       }
     });
     var emailValue;
@@ -423,6 +424,7 @@ function displaymeals() {
         emailv = true;
       } else {
         $(".emailInput p").removeClass("d-none");
+        emailv = false;
       }
     });
     var numValue;
@@ -434,6 +436,7 @@ function displaymeals() {
         numv = true;
       } else {
         $(".numInput p").removeClass("d-none");
+        numv = false;
       }
     });
     var passValue;
@@ -445,6 +448,7 @@ function displaymeals() {
         passv = true;
       } else {
         $(".passInput p").removeClass("d-none");
+        passv = false;
       }
     });
     var repassValue;
@@ -456,6 +460,7 @@ function displaymeals() {
         repassv = true;
       } else {
         $(".repassInput p").removeClass("d-none");
+        repassv = false;
       }
     });
     var ageValue;
@@ -467,6 +472,7 @@ function displaymeals() {
         agev = true;
       } else {
         $(".ageInput p").removeClass("d-none");
+        agev = false;
       }
     });
     function checkAllValidations() {
@@ -541,6 +547,7 @@ function validate(regex, value) {
 
 function displaymealssearch(testdata) {
   var meals = ``;
+  
   for (var i = 0; i < testdata.length; i++) {
     console.log(testdata[i]);
     meals += `
